@@ -1113,7 +1113,26 @@
             1000: { items: 5 }
         }
     });
+let currentIndex = 0;
+const slides = document.querySelectorAll('.slide'); 
+const totalSlides = slides.length;
 
+// دالة تغيير السلايد
+function changeSlide() {
+  currentIndex++;
+  
+  // لو وصل لآخر سلايد يرجع لأول واحد
+  if (currentIndex >= totalSlides) {
+    currentIndex = 0;
+  }
+
+  // تحريك السلايدر
+  document.querySelector('.slides-container').style.transform =
+    `translateX(-${currentIndex * 100}%)`;
+}
+
+// يتحرك كل 4 ثواني تلقائياً
+setInterval(changeSlide, 4000);
 </script>
 </body>
 
